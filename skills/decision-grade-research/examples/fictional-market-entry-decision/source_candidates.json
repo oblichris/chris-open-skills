@@ -1,0 +1,20 @@
+{
+  "query": "mid-market healthcare analytics HIPAA implementation timeline",
+  "provider": "none",
+  "results": [
+    {
+      "title": "Meridian synthetic compliance interview notes",
+      "url": "https://example.org/internal-fixture/meridian/compliance-architect-notes",
+      "snippet": "Fictional source candidate suggesting that HIPAA readiness would require architecture changes and a focused security review.",
+      "published_date": "2026-02-14",
+      "score": 0.82
+    },
+    {
+      "title": "Meridian synthetic healthcare demand memo",
+      "url": "https://example.org/internal-fixture/meridian/healthcare-demand-memo",
+      "snippet": "Fictional source candidate describing mid-market healthcare analytics demand and buyer constraints.",
+      "published_date": "2026-02-18",
+      "score": 0.76
+    }
+  ]
+}

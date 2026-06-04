@@ -1,0 +1,76 @@
+{
+  "repo_name": "chris-open-skills",
+  "updated_at": "2026-06-04",
+  "skills": [
+    {
+      "slug": "decision-grade-research",
+      "title": "Decision-Grade Research",
+      "summary": "Turn a real decision under uncertainty into an auditable research report with a hypothesis tree, parallel evidence tracks, adversarial Track-D, conflict adjudication, and a source-linked evidence ledger.",
+      "origin_note": "generalized public workflow for decision research and consulting-style evidence review",
+      "collection_path": "skills/decision-grade-research",
+      "lifecycle": "active",
+      "sync_status": "staged",
+      "github_repo": "",
+      "github_url": "",
+      "guide_path": "docs/skills/decision-grade-research.md",
+      "license": "MIT",
+      "tags": [
+        "research",
+        "decision-analysis",
+        "consulting-method",
+        "evidence-ledger",
+        "red-team",
+        "search-adapter",
+        "tavily",
+        "brave"
+      ],
+      "last_synced_at": "",
+      "updated_at": "2026-06-04"
+    },
+    {
+      "slug": "project-wip-auditor",
+      "title": "Project WIP Auditor",
+      "summary": "Scan local project roots and reconstruct what is active, stalled, dormant, or abandoned, then produce a WIP decision board with resume, ship, kill, or archive recommendations.",
+      "origin_note": "generalized public workflow for read-only local project workspace audits",
+      "collection_path": "skills/project-wip-auditor",
+      "lifecycle": "active",
+      "sync_status": "staged",
+      "github_repo": "",
+      "github_url": "",
+      "guide_path": "docs/skills/project-wip-auditor.md",
+      "license": "MIT",
+      "tags": [
+        "filesystem",
+        "git-history",
+        "project-audit",
+        "wip",
+        "agent-native"
+      ],
+      "last_synced_at": "",
+      "updated_at": "2026-06-04"
+    },
+    {
+      "slug": "premortem-redteam",
+      "title": "Pre-mortem Red Team",
+      "summary": "Stress-test a plan by assuming it failed, attacking load-bearing assumptions, ranking failure modes, defining monitoring thresholds and mitigations, and optionally checking fact-sensitive assumptions with a search adapter.",
+      "origin_note": "public method workflow for pre-mortem and red-team plan review",
+      "collection_path": "skills/premortem-redteam",
+      "lifecycle": "active",
+      "sync_status": "staged",
+      "github_repo": "",
+      "github_url": "",
+      "guide_path": "docs/skills/premortem-redteam.md",
+      "license": "MIT",
+      "tags": [
+        "premortem",
+        "red-team",
+        "risk",
+        "strategy",
+        "decision-analysis",
+        "assumption-testing"
+      ],
+      "last_synced_at": "",
+      "updated_at": "2026-06-04"
+    }
+  ]
+}

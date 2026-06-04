@@ -1,0 +1,74 @@
+{
+  "scanned_at": "2026-06-04",
+  "roots": [
+    "examples/synthetic-workspace/projects"
+  ],
+  "projects": [
+    {
+      "name": "invoice-parser",
+      "path": "projects/invoice-parser",
+      "is_git": true,
+      "last_commit": "2026-06-01",
+      "newest_mtime": "2026-06-02",
+      "has_readme": true,
+      "has_todo": true,
+      "file_count": 42,
+      "size_bytes": 318000
+    },
+    {
+      "name": "habit-tracker-app",
+      "path": "projects/habit-tracker-app",
+      "is_git": true,
+      "last_commit": "2026-05-28",
+      "newest_mtime": "2026-05-28",
+      "has_readme": true,
+      "has_todo": false,
+      "file_count": 67,
+      "size_bytes": 540000
+    },
+    {
+      "name": "newsletter-scraper",
+      "path": "projects/newsletter-scraper",
+      "is_git": true,
+      "last_commit": "2026-04-10",
+      "newest_mtime": "2026-04-12",
+      "has_readme": true,
+      "has_todo": true,
+      "file_count": 23,
+      "size_bytes": 91000
+    },
+    {
+      "name": "weekend-quiz-game",
+      "path": "projects/weekend-quiz-game",
+      "is_git": false,
+      "last_commit": null,
+      "newest_mtime": "2026-04-20",
+      "has_readme": false,
+      "has_todo": false,
+      "file_count": 3,
+      "size_bytes": 4200
+    },
+    {
+      "name": "team-wiki-exporter",
+      "path": "projects/team-wiki-exporter",
+      "is_git": true,
+      "last_commit": "2025-11-15",
+      "newest_mtime": "2025-12-01",
+      "has_readme": true,
+      "has_todo": false,
+      "file_count": 88,
+      "size_bytes": 1240000
+    },
+    {
+      "name": "scratch-api-test",
+      "path": "projects/scratch-api-test",
+      "is_git": false,
+      "last_commit": null,
+      "newest_mtime": "2025-09-03",
+      "has_readme": false,
+      "has_todo": false,
+      "file_count": 2,
+      "size_bytes": 1800
+    }
+  ]
+}

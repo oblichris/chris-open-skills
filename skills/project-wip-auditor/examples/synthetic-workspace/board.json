@@ -1,0 +1,74 @@
+{
+  "as_of": "2026-06-04",
+  "roots": [
+    "examples/synthetic-workspace/projects"
+  ],
+  "board": [
+    {
+      "name": "invoice-parser",
+      "path": "projects/invoice-parser",
+      "state": "active",
+      "last_activity": "2026-06-02",
+      "days_since": 2,
+      "action": "ship",
+      "rationale": "active and substantial — push it to a finished state",
+      "is_git": true,
+      "file_count": 42
+    },
+    {
+      "name": "habit-tracker-app",
+      "path": "projects/habit-tracker-app",
+      "state": "active",
+      "last_activity": "2026-05-28",
+      "days_since": 7,
+      "action": "ship",
+      "rationale": "active and substantial — push it to a finished state",
+      "is_git": true,
+      "file_count": 67
+    },
+    {
+      "name": "newsletter-scraper",
+      "path": "projects/newsletter-scraper",
+      "state": "stalled",
+      "last_activity": "2026-04-12",
+      "days_since": 53,
+      "action": "resume",
+      "rationale": "stalled but has real work — schedule a block to pick it back up",
+      "is_git": true,
+      "file_count": 23
+    },
+    {
+      "name": "weekend-quiz-game",
+      "path": "projects/weekend-quiz-game",
+      "state": "stalled",
+      "last_activity": "2026-04-20",
+      "days_since": 45,
+      "action": "kill",
+      "rationale": "stalled and thin — little to lose by dropping it",
+      "is_git": false,
+      "file_count": 3
+    },
+    {
+      "name": "team-wiki-exporter",
+      "path": "projects/team-wiki-exporter",
+      "state": "abandoned",
+      "last_activity": "2025-12-01",
+      "days_since": 185,
+      "action": "archive",
+      "rationale": "abandoned but documented — archive for the record instead of deleting",
+      "is_git": true,
+      "file_count": 88
+    },
+    {
+      "name": "scratch-api-test",
+      "path": "projects/scratch-api-test",
+      "state": "abandoned",
+      "last_activity": "2025-09-03",
+      "days_since": 274,
+      "action": "kill",
+      "rationale": "abandoned and thin — safe to delete",
+      "is_git": false,
+      "file_count": 2
+    }
+  ]
+}

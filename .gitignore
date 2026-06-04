@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+
+# Local editor/workspace metadata
+.obsidian/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Node / generated assets
+node_modules/
+dist/
+build/
+
+# Local outputs and temporary reports
+outputs/
+output/
+skills/*/output/
+reports/
+tmp/
+temp/
+*.log
+
+# Internal agent instructions and local validation harness
+AGENTS.md
+tests/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key

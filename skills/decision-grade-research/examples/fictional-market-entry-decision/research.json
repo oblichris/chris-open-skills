@@ -1,0 +1,22 @@
+{
+  "decision": "Should Meridian Analytics (fictional B2B analytics company) enter the mid-market healthcare segment in the next 12 months, or stay focused on retail operations?",
+  "hypotheses": [
+    {"id": "H1", "impact": "high", "status": "resolved", "statement": "The reachable mid-market healthcare segment is large enough to justify a 12-month entry."},
+    {"id": "H2", "impact": "high", "status": "resolved", "statement": "Meridian can reach healthcare buyers through its existing motion without a new sales org."},
+    {"id": "H3", "impact": "high", "status": "open", "statement": "Meridian's product can meet healthcare compliance (HIPAA) needs within 12 months."},
+    {"id": "H4", "impact": "medium", "status": "resolved", "statement": "Healthcare unit economics beat continued retail focus."},
+    {"id": "H5", "impact": "low", "status": "open", "statement": "Brand perception transfers from retail to healthcare."}
+  ],
+  "claims": [
+    {"id": "C1", "hypothesis": "H1", "strength": "estimated", "statement": "Reachable mid-market healthcare TAM is ~$420M, derived from segment count x average contract value.",
+     "sources": [{"ref": "https://example.org/healthcare-it-market-2025", "title": "Healthcare IT Market Brief 2025", "date": "2025-09"}]},
+    {"id": "C2", "hypothesis": "H1", "strength": "observed", "statement": "Mid-market healthcare IT spend grew 11% YoY, faster than retail's 4%.",
+     "sources": [{"ref": "https://example.org/it-spend-survey", "title": "Vertical IT Spend Survey", "date": "2026-01"}]},
+    {"id": "C3", "hypothesis": "H2", "strength": "observed", "statement": "14% of Meridian's inbound demo requests in the last 2 quarters came from healthcare orgs unprompted.",
+     "sources": [{"ref": "https://example.org/internal-fixture/meridian/inbound-by-vertical", "title": "Inbound demo requests by vertical", "date": "2026-03"}]},
+    {"id": "C4", "hypothesis": "H3", "strength": "assumed", "statement": "A HIPAA-compliant deployment tier can be built on the current architecture in two quarters.",
+     "sources": []},
+    {"id": "C5", "hypothesis": "H4", "strength": "estimated", "statement": "Healthcare CAC payback is ~14 months vs. ~11 months for retail, but ACV is 1.8x higher.",
+     "sources": [{"ref": "https://example.org/internal-fixture/meridian/segment-economics", "title": "Segment economics model", "date": "2026-02"}]}
+  ]
+}
