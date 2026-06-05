@@ -1,0 +1,4 @@
+interface:
+  display_name: "all2md"
+  short_description: "Route multimodal files into clean Markdown"
+  default_prompt: "Use $all2md to convert this folder of mixed documents, PDFs, audio, and video into clean Markdown."

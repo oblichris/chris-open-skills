@@ -1,6 +1,6 @@
 {
   "repo_name": "chris-open-skills",
-  "updated_at": "2026-06-04",
+  "updated_at": "2026-06-05",
   "skills": [
     {
       "slug": "decision-grade-research",
@@ -71,6 +71,30 @@
       ],
       "last_synced_at": "",
       "updated_at": "2026-06-04"
+    },
+    {
+      "slug": "all2md",
+      "title": "all2md",
+      "summary": "Convert mixed source-material packages into AI-ready Markdown by routing documents, PDFs, images, audio, and video through available local tools while preserving folder structure and writing index plus manifest artifacts.",
+      "origin_note": "public source-preparation workflow for multimodal research and diligence packages",
+      "collection_path": "skills/all2md",
+      "lifecycle": "active",
+      "sync_status": "staged",
+      "github_repo": "",
+      "github_url": "",
+      "guide_path": "docs/skills/all2md.md",
+      "license": "MIT",
+      "tags": [
+        "markdown",
+        "document-conversion",
+        "ocr",
+        "asr",
+        "pdf",
+        "source-preparation",
+        "agent-native"
+      ],
+      "last_synced_at": "",
+      "updated_at": "2026-06-05"
     }
   ]
 }

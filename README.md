@@ -16,6 +16,7 @@ The first batch focuses on two things:
 | Decision-Grade Research | Turns a real decision under uncertainty into a source-backed decision report with hypothesis trees, parallel evidence tracks, adversarial Track-D, conflict adjudication, and an evidence ledger. | staged | [Guide](docs/skills/decision-grade-research.md) |
 | Project WIP Auditor | Scans local project roots to reconstruct active, stalled, dormant, and abandoned work, then produces a WIP decision board with resume / ship / kill / archive recommendations. | staged | [Guide](docs/skills/project-wip-auditor.md) |
 | Pre-mortem Red Team | Stress-tests a plan by assuming it failed, attacking load-bearing assumptions, ranking failure modes, and defining monitoring thresholds and mitigations. | staged | [Guide](docs/skills/premortem-redteam.md) |
+| all2md | Converts mixed source-material packages into AI-ready Markdown, preserving folder structure and writing index plus manifest artifacts for traceable review. | staged | [Guide](docs/skills/all2md.md) |
 
 The structured source of truth is [registry/skills.json](registry/skills.json).
 
@@ -208,3 +209,45 @@ python3 skills/premortem-redteam/scripts/generate_html_report.py \
   --run-id 2026-06-04
 ```
 
+### all2md
+
+Use this when the user has a folder of mixed source materials and needs clean Markdown before analysis. The skill routes documents, PDFs, screenshots, scanned images, audio, and video through available local tools, mirrors the source folder structure, and writes `INDEX.md` plus `manifest.json` so downstream agents can trace every converted file.
+
+Use it when:
+
+- a research or diligence package contains mixed file types
+- local conversion tools are available or can be probed
+- output needs to preserve source-relative paths
+- failures and parser choices should be auditable
+
+The user provides:
+
+- one or more source files or directories
+- optional parser preferences such as PDF, image, or ASR mode
+- optional output location
+
+The agent produces:
+
+- converted Markdown files
+- `INDEX.md`
+- `manifest.json`
+- parser and quality-check summary
+- rerun recommendations for failed or weak conversions
+
+Useful files:
+
+- [Skill entry](skills/all2md/SKILL.md)
+- [Human guide](docs/skills/all2md.md)
+- [Routing contract](skills/all2md/references/routing-contract.md)
+- [Quality check](skills/all2md/references/quality-check.md)
+- [Worked example](skills/all2md/examples/synthetic-source-package/README.md)
+
+Example script:
+
+```bash
+python3 skills/all2md/scripts/convert_all.py source-package \
+  --workers 4 \
+  --pdf-workers 2 \
+  --heavy-workers 1 \
+  --asr-workers 1
+```
