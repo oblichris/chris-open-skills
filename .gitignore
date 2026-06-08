@@ -19,9 +19,10 @@ dist/
 build/
 
 # Local outputs and temporary reports
-outputs/
-output/
-skills/*/output/
+/outputs/
+/output/
+skills/*/output/*
+!skills/*/output/.gitkeep
 reports/
 tmp/
 temp/

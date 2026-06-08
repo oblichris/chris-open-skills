@@ -1,0 +1,10 @@
+{
+  "chart_type": "bar",
+  "title": "公司收入增长趋势",
+  "x": "年份",
+  "y": "收入",
+  "output_name": "revenue_bar_from_spec",
+  "output_formats": ["svg", "png"],
+  "theme": "consulting",
+  "data_notes": []
+}

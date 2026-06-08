@@ -17,6 +17,7 @@ The first batch focuses on two things:
 | Project WIP Auditor | Scans local project roots to reconstruct active, stalled, dormant, and abandoned work, then produces a WIP decision board with resume / ship / kill / archive recommendations. | staged | [Guide](docs/skills/project-wip-auditor.md) |
 | Pre-mortem Red Team | Stress-tests a plan by assuming it failed, attacking load-bearing assumptions, ranking failure modes, and defining monitoring thresholds and mitigations. | staged | [Guide](docs/skills/premortem-redteam.md) |
 | all2md | Converts mixed source-material packages into AI-ready Markdown, preserving folder structure and writing index plus manifest artifacts for traceable review. | staged | [Guide](docs/skills/all2md.md) |
+| agent-chart | Generates PPT-ready static charts from local CSV, Excel, or pasted data through validation, explicit specs, and deterministic PNG/SVG export. | staged | [Guide](docs/skills/agent-chart.md) |
 
 The structured source of truth is [registry/skills.json](registry/skills.json).
 
@@ -250,4 +251,47 @@ python3 skills/all2md/scripts/convert_all.py source-package \
   --pdf-workers 2 \
   --heavy-workers 1 \
   --asr-workers 1
+```
+
+### agent-chart
+
+Use this when the user has local or pasted business data and needs clean chart assets for slides or reports. The skill keeps the agent/model away from direct chart drawing: requests become explicit chart specs, local Python validates the data, and the renderer writes PNG, SVG, and `.spec.json` files to a timestamped output folder.
+
+Use it when:
+
+- a user asks for bar, line, pie, donut, combo, grouped/stacked bar, horizontal bar, or scatter charts
+- chart fields should be explicit and auditable
+- source data should remain unchanged
+- generated assets need to be reusable in PPT or reports
+
+The user provides:
+
+- a CSV or Excel file, or pasted CSV-like data
+- explicit field assignments such as `x=年份,y=收入`
+- optional chart title, output name, output formats, or JSON spec
+
+The agent produces:
+
+- validation summary and data notes
+- timestamped output folder
+- `.svg`, `.png`, and `.spec.json` chart artifacts
+- an explanation of selected chart type and fields
+
+Useful files:
+
+- [Skill entry](skills/agent-chart/SKILL.md)
+- [Human guide](docs/skills/agent-chart.md)
+- [Chart spec contract](skills/agent-chart/references/chart-spec-contract.md)
+- [Data validation protocol](skills/agent-chart/references/data-validation.md)
+- [Worked example](skills/agent-chart/examples/synthetic-business-charts/README.md)
+
+Example script:
+
+```bash
+python3 skills/agent-chart/scripts/agent_chart_cli.py \
+  --input skills/agent-chart/examples/revenue.csv \
+  --prompt "生成柱状图，x=年份，y=收入，标题=公司收入增长趋势" \
+  --output revenue_bar \
+  --format svg,png \
+  --output-dir skills/agent-chart/output
 ```

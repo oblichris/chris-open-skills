@@ -1,6 +1,6 @@
 {
   "repo_name": "chris-open-skills",
-  "updated_at": "2026-06-05",
+  "updated_at": "2026-06-08",
   "skills": [
     {
       "slug": "decision-grade-research",
@@ -95,6 +95,30 @@
       ],
       "last_synced_at": "",
       "updated_at": "2026-06-05"
+    },
+    {
+      "slug": "agent-chart",
+      "title": "agent-chart",
+      "summary": "Generate PPT-ready static charts from local CSV, Excel, or pasted data through an explicit chart spec, validation pass, and deterministic Python renderer that exports PNG, SVG, and saved specs.",
+      "origin_note": "public chart-generation workflow for local business analysis data and consulting-style report assets",
+      "collection_path": "skills/agent-chart",
+      "lifecycle": "active",
+      "sync_status": "staged",
+      "github_repo": "",
+      "github_url": "",
+      "guide_path": "docs/skills/agent-chart.md",
+      "license": "MIT",
+      "tags": [
+        "charts",
+        "data-visualization",
+        "business-analysis",
+        "ppt-assets",
+        "csv",
+        "excel",
+        "agent-native"
+      ],
+      "last_synced_at": "",
+      "updated_at": "2026-06-08"
     }
   ]
 }

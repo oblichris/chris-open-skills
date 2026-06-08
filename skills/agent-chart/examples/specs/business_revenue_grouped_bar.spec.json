@@ -1,0 +1,10 @@
+{
+  "chart_type": "grouped_bar",
+  "title": "各业务收入变化",
+  "x": "年份",
+  "y": ["业务A", "业务B", "业务C"],
+  "output_name": "business_revenue_grouped_bar_from_spec",
+  "output_formats": ["svg", "png"],
+  "theme": "consulting",
+  "data_notes": []
+}

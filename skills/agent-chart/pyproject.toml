@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-chart"
+version = "0.1.0"
+description = "Local consulting-style chart generation from CSV, Excel, or pasted data."
+requires-python = ">=3.9"
+dependencies = [
+  "pandas>=2.0",
+  "matplotlib>=3.7",
+  "openpyxl>=3.1",
+]
+
+[project.scripts]
+agent-chart = "agent_chart.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["agent_chart*"]
