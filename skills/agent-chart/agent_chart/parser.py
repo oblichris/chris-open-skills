@@ -6,15 +6,24 @@ from typing import Any
 
 
 CHART_KEYWORDS = [
-    ("combo_bar_line", ["组合图", "柱状图+折线图", "柱线", "收入和利润率组合"]),
-    ("stacked_bar", ["堆叠柱状图", "堆积柱状图", "堆叠柱形图", "堆积柱形图"]),
-    ("grouped_bar", ["分组柱状图", "簇状柱状图", "并列柱状图", "多系列柱状图", "分组柱形图", "簇状柱形图"]),
-    ("horizontal_bar", ["横向条形图", "条形图", "横向"]),
-    ("donut", ["环形图", "甜甜圈"]),
-    ("pie", ["饼图"]),
-    ("scatter", ["散点图"]),
-    ("line", ["折线图"]),
-    ("bar", ["柱状图", "柱形图"]),
+    ("combo_bar_line", ["组合图", "柱状图+折线图", "柱线", "收入和利润率组合",
+                         "combo chart", "combo bar line", "bar and line"]),
+    ("stacked_bar", ["堆叠柱状图", "堆积柱状图", "堆叠柱形图", "堆积柱形图",
+                      "stacked bar"]),
+    ("grouped_bar", ["分组柱状图", "簇状柱状图", "并列柱状图", "多系列柱状图", "分组柱形图", "簇状柱形图",
+                      "grouped bar", "clustered bar"]),
+    ("horizontal_bar", ["横向条形图", "条形图", "横向",
+                         "horizontal bar"]),
+    ("donut", ["环形图", "甜甜圈",
+                "donut chart", "donut"]),
+    ("pie", ["饼图",
+              "pie chart"]),
+    ("scatter", ["散点图",
+                  "scatter plot", "scatter"]),
+    ("line", ["折线图",
+               "line chart"]),
+    ("bar", ["柱状图", "柱形图",
+              "bar chart"]),
 ]
 
 FIELD_ALIASES = {
@@ -93,7 +102,13 @@ def _detect_chart_type(prompt: str) -> str:
     for chart_type, words in CHART_KEYWORDS:
         if any(word in prompt for word in words):
             return chart_type
-    raise PromptParseError("Unable to detect chart type. Please include 柱状图/折线图/饼图/环形图/组合图/散点图.")
+    raise PromptParseError(
+        "Unable to detect chart type. "
+        "Include a chart type keyword such as: "
+        "bar chart, line chart, pie chart, donut chart, scatter plot, "
+        "stacked bar, grouped bar, horizontal bar, combo chart "
+        "(or the Chinese equivalents: 柱状图, 折线图, 饼图, 环形图, 散点图, 组合图)."
+    )
 
 
 def _parse_assignments(prompt: str) -> dict[str, Any]:
