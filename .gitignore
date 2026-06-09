@@ -30,7 +30,8 @@ temp/
 
 # Internal agent instructions and local validation harness
 AGENTS.md
-tests/
+tests/*
+!tests/*.py
 
 # Secrets and local environment
 .env
