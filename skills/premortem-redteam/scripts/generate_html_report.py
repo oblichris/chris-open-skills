@@ -67,11 +67,12 @@ def render(data: dict) -> str:
         out.append(f"<strong>Horizon:</strong> {esc(plan['horizon'])}")
     out.append("</p>")
 
-    out.append("<h2>Load-bearing assumptions</h2><ul>")
-    for a in assumptions:
-        tag = " <span class='tag'>load-bearing</span>" if a.get("load_bearing") else ""
-        out.append(f"<li><strong>{esc(a.get('id'))}</strong>: {esc(a.get('statement'))}{tag}</li>")
-    out.append("</ul>")
+    if assumptions:
+        out.append("<h2>Load-bearing assumptions</h2><ul>")
+        for a in assumptions:
+            tag = " <span class='tag'>load-bearing</span>" if a.get("load_bearing") else ""
+            out.append(f"<li><strong>{esc(a.get('id'))}</strong>: {esc(a.get('statement'))}{tag}</li>")
+        out.append("</ul>")
 
     out.append("<h2>Ranked failure modes</h2>")
     out.append("<table><tr><th>#</th><th>Failure mode</th><th>Breaks</th>"

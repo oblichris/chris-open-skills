@@ -115,6 +115,18 @@ class TestRenderAssumptions(unittest.TestCase):
         self.assertIn("A4", html_out)
         self.assertNotIn("load-bearing", html_out)
 
+    def test_assumptions_section_shown_when_present(self):
+        data = _analysis(
+            assumptions=[{"id": "A1", "statement": "Content drives signups.", "load_bearing": True}],
+        )
+        html_out = render(data)
+        self.assertIn("Load-bearing assumptions", html_out)
+
+    def test_assumptions_section_omitted_when_empty(self):
+        data = _analysis(assumptions=[])
+        html_out = render(data)
+        self.assertNotIn("Load-bearing assumptions", html_out)
+
 
 class TestRenderFailureModes(unittest.TestCase):
     def test_priority_computed_and_shown(self):
