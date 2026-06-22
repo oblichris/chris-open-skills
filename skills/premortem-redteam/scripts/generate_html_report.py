@@ -116,11 +116,22 @@ def parse_args(argv=None):
 
 def main(argv=None):
     args = parse_args(argv)
-    raw = Path(args.input).read_text(encoding="utf-8") if args.input else sys.stdin.read()
+    if args.input:
+        input_path = Path(args.input)
+        if not input_path.exists():
+            print(f"error: input file does not exist: {input_path}", file=sys.stderr)
+            return 2
+        raw = input_path.read_text(encoding="utf-8")
+    else:
+        raw = sys.stdin.read()
     if not raw.strip():
         print("error: no analysis JSON provided on --input or stdin", file=sys.stderr)
         return 2
-    data = json.loads(raw)
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        print(f"error: invalid JSON in input: {exc}", file=sys.stderr)
+        return 2
     report = render(data)
     if args.output_dir:
         out_dir = Path(args.output_dir)
