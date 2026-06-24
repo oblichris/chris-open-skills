@@ -236,6 +236,31 @@ class TestMainCli(unittest.TestCase):
             sys.stdin = old_stdin
         self.assertEqual(rc, 2)
 
+    def test_missing_input_file_exit_two(self):
+        import io
+        from contextlib import redirect_stderr
+
+        err = io.StringIO()
+        with redirect_stderr(err):
+            rc = main(["--input", "/nonexistent/path/analysis.json"])
+        self.assertEqual(rc, 2)
+        self.assertIn("does not exist", err.getvalue())
+
+    def test_invalid_json_exit_two(self):
+        import io
+        from contextlib import redirect_stderr
+
+        old_stdin = sys.stdin
+        sys.stdin = io.StringIO("{not valid json")
+        err = io.StringIO()
+        try:
+            with redirect_stderr(err):
+                rc = main([])
+        finally:
+            sys.stdin = old_stdin
+        self.assertEqual(rc, 2)
+        self.assertIn("invalid JSON", err.getvalue())
+
     def test_output_dir_writes_file(self):
         import io
         import tempfile
