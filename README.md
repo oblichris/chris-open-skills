@@ -14,7 +14,7 @@ The first batch focuses on two things:
 | Skill | What It Does | Status | Guide |
 | --- | --- | --- | --- |
 | Decision-Grade Research | Turns a real decision under uncertainty into a source-backed decision report with hypothesis trees, parallel evidence tracks, adversarial Track-D, conflict adjudication, and an evidence ledger. | staged | [Guide](docs/skills/decision-grade-research.md) |
-| Project WIP Auditor | Scans local project roots to reconstruct active, stalled, dormant, and abandoned work, then produces a WIP decision board with resume / ship / kill / archive recommendations. | staged | [Guide](docs/skills/project-wip-auditor.md) |
+| Project WIP Auditor | Scans local project roots to reconstruct hot, active, cooling, parked, and cold work, then produces a WIP decision board with focus / close-loop / resume / park / archive / drop recommendations. | staged | [Guide](docs/skills/project-wip-auditor.md) |
 | Pre-mortem Red Team | Stress-tests a plan by assuming it failed, attacking load-bearing assumptions, ranking failure modes, and defining monitoring thresholds and mitigations. | staged | [Guide](docs/skills/premortem-redteam.md) |
 | all2md | Converts mixed source-material packages into AI-ready Markdown, preserving folder structure and writing index plus manifest artifacts for traceable review. | staged | [Guide](docs/skills/all2md.md) |
 | agent-chart | Generates PPT-ready static charts from local CSV, Excel, or pasted data through validation, explicit specs, and deterministic PNG/SVG export. | staged | [Guide](docs/skills/agent-chart.md) |
@@ -118,14 +118,14 @@ python3 skills/decision-grade-research/scripts/build_evidence_ledger.py \
 
 ### Project WIP Auditor
 
-Use this when the user has many project directories and needs to understand what is actually active. The skill is read-only by default: it collects git history, file mtimes, README/TODO signals, and project structure, then emits a decision board.
+Use this when the user has many project directories and needs to understand what is actually in progress. The skill is read-only by default: it collects git history, meaningful file mtimes, noisy generated-file mtimes, README/TODO signals, and project shape, then emits a decision board.
 
 Use it when:
 
-- a user has many project folders and wants to know what is active or abandoned
+- a user has many project folders and wants to know what is hot, cooling, or cold
 - the agent is allowed to scan local directories read-only
 - the desired output is a WIP decision board, not a calendar plan
-- each project should receive a next action: `resume`, `ship`, `kill`, or `archive`
+- each project should receive a next action: `focus`, `close_loop`, `resume`, `park`, `archive`, or `drop`
 
 The user provides:
 

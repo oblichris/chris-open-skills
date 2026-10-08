@@ -49,7 +49,7 @@ A `{ "as_of", "roots", "board": [...] }` object. Each board entry carries `name`
 - Every action carries a short rationale tied to the project's state and substance.
 - The final answer must include insights from Markdown reading for major recommendations.
 - Do not present a metadata-only scan as a WIP audit.
-- The board recommends; it never moves or deletes files. Acting on `kill`/`archive` is left
+- The board recommends; it never moves or deletes files. Acting on `archive` or `drop` is left
   to the user.
 - Published examples must use a synthetic workspace — never real folder names, real paths,
   or real commit history.

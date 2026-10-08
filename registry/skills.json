@@ -30,7 +30,7 @@
     {
       "slug": "project-wip-auditor",
       "title": "Project WIP Auditor",
-      "summary": "Scan local project roots and reconstruct what is active, stalled, dormant, or abandoned, then produce a WIP decision board with resume, ship, kill, or archive recommendations.",
+      "summary": "Scan local project roots and reconstruct what is hot, active, cooling, parked, cold, or unclear, then produce a WIP decision board with focus, close-loop, resume, park, archive, or drop recommendations.",
       "origin_note": "generalized public workflow for read-only local project workspace audits",
       "collection_path": "skills/project-wip-auditor",
       "lifecycle": "active",

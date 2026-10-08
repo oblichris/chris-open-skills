@@ -10,16 +10,20 @@ the whole pipeline produce a real decision board without scanning their own disk
 Six imaginary side projects sitting under one root, captured as signals in
 [`scan.json`](scan.json). In a real run those signals come from
 `scripts/scan_projects.py` walking the filesystem; here they are hand-written so the
-result is stable and reviewable:
+result is stable and reviewable. The fixture uses the current scan contract:
+`meaningful_file_count`, `meaningful_mtime`, and `noisy_file_count`, not raw file
+counts or the newest mtime alone.
 
-- `invoice-parser` — committed two days ago, 42 files, README + TODO (active, real work)
-- `habit-tracker-app` — committed a week ago, 67 files, README (active, substantial)
-- `newsletter-scraper` — last touched ~8 weeks ago, 23 files, README (stalled but real)
-- `weekend-quiz-game` — touched ~6 weeks ago, only 3 files, no README (stalled, thin)
-- `team-wiki-exporter` — quiet since last December, 88 files, README (abandoned but documented)
-- `scratch-api-test` — untouched since September, 2 files, no git, no README (abandoned, throwaway)
+- `invoice-parser` — real code committed on 2026-06-02, 42 meaningful files, README (hot, productized)
+- `weekend-quiz-game` — 36 of 40 files are exports; the newest file is a PNG from 2026-06-03, but the last meaningful note is 2026-05-10 (artifact-heavy)
+- `habit-tracker-app` — committed on 2026-05-28, 60 meaningful files, README, clean git tree (active, productized)
+- `newsletter-scraper` — last real work on 2026-05-20, 23 meaningful files, README (cooling, productized)
+- `team-wiki-exporter` — last meaningful edit on 2025-12-01, 80 meaningful files, README (cold, productized)
+- `scratch-api-test` — two files, no README, no git, untouched since 2025-09-03 (scratch)
 
 ## Reproduce the board
+
+From `skills/project-wip-auditor/`:
 
 ```bash
 python3 scripts/build_wip_board.py \
@@ -31,16 +35,20 @@ python3 scripts/build_wip_board.py \
 
 `--as-of` is pinned so the output never drifts. The rendered board is checked in as
 [`board.md`](board.md) and the structured version as [`board.json`](board.json).
+Re-running the command above should reproduce those files exactly.
 
 ## Why each project lands where it does
 
-The board separates "active and worth finishing" from "dead weight you can drop":
+The board separates current bets from loose ends and from work that should leave
+daily attention:
 
-- `invoice-parser` and `habit-tracker-app` are **active + substantial → ship**: keep momentum, drive to a finished cut.
-- `newsletter-scraper` is **stalled + substantial → resume**: there is real work to pick back up, so it earns a scheduled block.
-- `weekend-quiz-game` is **stalled + thin → kill**: three files and no README mean little is lost by dropping it.
-- `team-wiki-exporter` is **abandoned + documented → archive**: too much work to delete outright, so keep it for the record.
-- `scratch-api-test` is **abandoned + thin → kill**: a two-file scratch test, safe to delete.
+- `invoice-parser` is **hot + productized → focus**: real work in the last 48 hours, so it is a candidate for this week's main bet.
+- `weekend-quiz-game` is **artifact-heavy → close_loop**: a fresh export makes the folder look current, but almost everything in it is generated. Preserve the output or write the decision note, then stop treating it as active.
+- `habit-tracker-app` is **active + productized → resume**: warm enough to pick back up, but only if it matches the current goal.
+- `newsletter-scraper` is **cooling + productized → park**: real work, but not current; write a restart note before the context fades.
+- `team-wiki-exporter` is **cold + productized → archive**: substantial historical work, kept for retrieval rather than active attention.
+- `scratch-api-test` is **scratch → drop**: two files and no README; it can stay on disk, but it should leave the mental WIP board.
 
-This is the payoff of the skill: instead of a flat folder listing, you get a ranked
-set of decisions — what to ship, what to resume, what to archive, and what to kill.
+This is the payoff of the skill: instead of a flat folder listing, you get one
+next action per project — what to focus, what to close, what to resume, what to
+park, what to archive, and what to drop.
