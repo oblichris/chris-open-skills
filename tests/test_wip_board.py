@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+import io
+import json
 import sys
+import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
 
 SCRIPTS_DIR = Path(__file__).resolve().parents[1] / "skills" / "project-wip-auditor" / "scripts"
@@ -13,6 +17,7 @@ from build_wip_board import (  # noqa: E402
     days_since,
     evaluate,
     last_real_activity,
+    main,
     shape,
     triage,
 )
@@ -266,6 +271,54 @@ class TestEvaluateIntegration(unittest.TestCase):
         }
         result = evaluate(project, AS_OF)
         self.assertFalse(result["noise_note"])
+
+
+class TestSyntheticExample(unittest.TestCase):
+    """The checked-in workspace must be exactly what the current board script emits."""
+
+    EXAMPLE = (
+        Path(__file__).resolve().parents[1]
+        / "skills"
+        / "project-wip-auditor"
+        / "examples"
+        / "synthetic-workspace"
+    )
+
+    def test_checked_in_board_matches_script(self):
+        expected_md = (self.EXAMPLE / "board.md").read_text(encoding="utf-8")
+        expected_json = json.loads((self.EXAMPLE / "board.json").read_text(encoding="utf-8"))
+        stdout = io.StringIO()
+        with tempfile.TemporaryDirectory() as tmp:
+            json_out = Path(tmp) / "board.json"
+            with redirect_stdout(stdout):
+                rc = main([
+                    "--input",
+                    str(self.EXAMPLE / "scan.json"),
+                    "--as-of",
+                    "2026-06-04",
+                    "--json-out",
+                    str(json_out),
+                ])
+            produced = json.loads(json_out.read_text(encoding="utf-8"))
+        self.assertEqual(rc, 0)
+        self.assertEqual(stdout.getvalue(), expected_md)
+        self.assertEqual(produced, expected_json)
+        actions = {row["name"]: row["action"] for row in produced["board"]}
+        self.assertEqual(
+            actions,
+            {
+                "invoice-parser": "focus",
+                "weekend-quiz-game": "close_loop",
+                "habit-tracker-app": "resume",
+                "newsletter-scraper": "park",
+                "team-wiki-exporter": "archive",
+                "scratch-api-test": "drop",
+            },
+        )
+        quiz = next(row for row in produced["board"] if row["name"] == "weekend-quiz-game")
+        self.assertIn("exports/quiz-cards.png", quiz["noise_note"])
+        self.assertNotIn("ship", actions.values())
+        self.assertNotIn("kill", actions.values())
 
 
 if __name__ == "__main__":

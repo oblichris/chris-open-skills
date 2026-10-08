@@ -1,6 +1,6 @@
 ---
 name: project-wip-auditor
-description: Reconstruct what you have actually been working on by scanning local project folders, then output a work-in-progress decision board. Use when the user has many project directories and wants to know which are active, stalled, dormant, or abandoned, and what to resume, ship, kill, or archive. The skill reads the real filesystem — git history, file mtimes, READMEs, TODOs. Do not use for calendar or schedule management, single-repo code review, or any task that does not involve scanning local project directories.
+description: Reconstruct what you have actually been working on by scanning local project folders, then output a work-in-progress decision board. Use when the user has many project directories and wants to know which are hot, active, cooling, parked, cold, or unclear, and what to focus, close, resume, park, archive, or drop. The skill reads the real filesystem — git history, meaningful file mtimes, generated-file noise, READMEs, TODOs. Do not use for calendar or schedule management, single-repo code review, or any task that does not involve scanning local project directories.
 ---
 
 # Project WIP Auditor
@@ -51,4 +51,4 @@ Web search is not part of the core workflow; use it only if a scanned project ex
   - last real activity signal (last commit date or meaningful file mtime)
   - recommended action: `focus` / `close_loop` / `resume` / `park` / `archive` / `drop`
   - one-line rationale
-- board-level summary: counts per state, the top resume candidates, and the clear kill list
+- board-level summary: action counts, the focus candidates, the close-loop items, and what to drop from active attention
